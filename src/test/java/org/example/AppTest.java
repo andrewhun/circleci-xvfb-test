@@ -1,38 +1,32 @@
 package org.example;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import javafx.stage.Stage;
+import org.junit.jupiter.api.*;
+import org.testfx.framework.junit5.ApplicationTest;
+import org.testfx.api.FxToolkit;
 
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-    extends TestCase
-{
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public AppTest( String testName )
-    {
-        super( testName );
+public class AppTest extends ApplicationTest {
+
+    protected Stage stage;
+
+
+    /*@BeforeAll
+    static void setUpHeadlessMode() {
+
+        System.setProperty("testfx.robot", "glass");
+        System.setProperty("testfx.headless", "true");
+        System.setProperty("prism.order", "sw");
+        System.setProperty("prism.text", "t2k");
+    }*/
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        this.stage = stage;
+        new App().start(stage);
     }
 
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite()
-    {
-        return new TestSuite( AppTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-    public void testApp()
-    {
-        assertTrue( true );
+    @Test
+    void testDisplayingHelloWorldPage() {
+        Assertions.assertEquals("Hello World!", stage.getTitle());
     }
 }
