@@ -15,7 +15,7 @@ commands:
                   xvfb-run mvn clean test
                   set +x
                 name: Run Tests Using Maven
-      - process_test_resultss
+      - process_test_results
 
   # Source: https://circleci.com/developer/orbs/orb/circleci/maven
   process_test_results:
