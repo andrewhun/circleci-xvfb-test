@@ -12,7 +12,7 @@ commands:
                   
                   set -x
                   # shellcheck disable=SC2086
-                  xvfb-run mvn clean test
+                  xvfb-run mvn clean test -e /dev/stdout
                   set +x
                 name: Run Tests Using Maven
       - process_test_results
