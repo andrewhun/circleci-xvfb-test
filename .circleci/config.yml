@@ -106,7 +106,7 @@ commands:
 jobs:
   run_tests_with_maven:
     docker:
-      - image: circleci/openjdk:17-jdk-buster-node-browsers
+      - image: andrewhun/circleci-xvfb:test
     steps:
       - maven_test
 
